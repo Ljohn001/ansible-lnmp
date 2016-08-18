@@ -1,0 +1,6 @@
+---
+- hosts: lnmp
+  remote_user: root
+
+  roles:
+    - {role: mysql, mysql: "{{ mysql5172 }}"}

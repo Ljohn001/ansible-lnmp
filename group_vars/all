@@ -1,0 +1,25 @@
+---
+## MYSQL CONFIGURATION ##
+# mysql version choice
+mysql5172:
+  version: 5.1.72
+  configure_args: >
+    --prefix=$BASEDIR --datadir=$DATADIR \
+    --with-mysqld-user=mysql --with-charset=utf8 \
+    --with-extra-charsets=all
+
+mysql5173:
+  version: 5.1.73
+
+mysql5549:
+  version: 5.5.49
+
+mysql5630:
+  version: 5.6.30
+
+# mysql basic conf
+mysql_base_dir: /usr/local/mysql
+mysql_data_dir: /data/mysql
+mysql_init_pass: adminmysql
+msyql_daemon_name: mysqld
+mysql_daemon_user: mysql

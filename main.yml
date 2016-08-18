@@ -4,4 +4,4 @@
 
   roles:
     - {role: env}
-    - {role: mysql, mysql: "{{ mysql5172 }}"}
+    - {role: mysql, mysql: "{{ mysql5549 }}"}

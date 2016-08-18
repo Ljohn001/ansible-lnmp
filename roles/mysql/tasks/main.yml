@@ -19,7 +19,6 @@
 - name: daemon user create
   user: name={{ mysql_daemon_user }} group={{ mysql_daemon_user }}
 
-- name: execute mysqlinstall shell scripts
-  shell: sh mysqlinstall.sh
+- shell: sh mysqlinstall.sh
   args:
     chdir: /usr/local/src

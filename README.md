@@ -8,8 +8,10 @@
 group_vars目录中的all文件中集中了所有配置
 
 ## 使用方法
-**按照下列链接中的方法安装ansible**
+**安装ansible**
 [ansible安装及基础知识](http://blog.xiao5tech.com/2016/07/26/026-devops_ansible_tutorial/)
+
+**使用说明**
 ``` bash
 # 安装git
 yum install git -y

@@ -3,4 +3,5 @@
   remote_user: root
 
   roles:
+    - {role: env}
     - {role: mysql, mysql: "{{ mysql5172 }}"}

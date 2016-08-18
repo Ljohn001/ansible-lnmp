@@ -4,8 +4,8 @@
 mysql5172:
   version: 5.1.72
   configure_args: >
-    --prefix=$BASEDIR --datadir=$DATADIR \
-    --with-mysqld-user=mysql --with-charset=utf8 \
+    --prefix=$BASEDIR --datadir=$DATADIR 
+    --with-mysqld-user=mysql --with-charset=utf8 
     --with-extra-charsets=all
 
 mysql5173:
@@ -21,5 +21,5 @@ mysql5630:
 mysql_base_dir: /usr/local/mysql
 mysql_data_dir: /data/mysql
 mysql_init_pass: adminmysql
-msyql_daemon_name: mysqld
+mysql_daemon_name: mysqld
 mysql_daemon_user: mysql

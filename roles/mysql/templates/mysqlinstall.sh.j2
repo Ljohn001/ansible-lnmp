@@ -10,13 +10,6 @@ DAEMON-NAME={{ mysql_daemon_name }}
 
 PIDFILE=${BASEDIR}/mysql.pid
 
-## mysql base env install ##
-yum install gcc gcc-c++ cmake ncurses-devel -y
-yum groupinstall base "Development Tools" -y
-
-## create user ##
-groupadd $DAEMON-USER
-useradd -r -g $DAEMON-USER $DAEMON-USER
 
 ## source package unzip ##
 [[ -d mysql ]] && rm -rf mysql

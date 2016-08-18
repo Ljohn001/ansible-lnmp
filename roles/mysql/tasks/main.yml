@@ -1,6 +1,11 @@
 ---
-- name: install libselinux-python, if not, ansible will raise error
-  yum: name=libselinux-python state=present
+- name: yum install mysql env packages
+  yum: name={{ item }} state=present
+  with_items:
+    - gcc
+    - gcc-c++
+    - cmake
+    - ncurses-devel
 
 - name: copy mysql source code
   copy: src=mysql-{{ mysql.version }}.tar.gz dest=/usr/local/src
@@ -8,6 +13,13 @@
 - name: copy msyql install shell
   template: src=mysqlinstall.sh.j2 dest=/usr/local/src/mysqlinstall.sh
 
-- shell: sh mysqlinstall.sh
+- name: daemon group create
+  group: name={{ mysql_daemon_user }} state=present
+
+- name: daemon user create
+  user: name={{ mysql_daemon_user }} group={{ mysql_daemon_user }}
+
+- name: execute mysqlinstall shell scripts
+  shell: sh mysqlinstall.sh
   args:
     chdir: /usr/local/src

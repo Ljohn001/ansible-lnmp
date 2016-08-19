@@ -5,6 +5,14 @@
 - name: disable selinux
   selinux: state=disabled
 
+- name: yum install env packages
+  yum: name={{ item }} state=present
+  with_items:
+    - gcc
+    - gcc-c++
+    - cmake
+    - ncurses-devel
+
 - name: yum group install base and development tools
   yum: name={{ item }} state=present
   with_items:

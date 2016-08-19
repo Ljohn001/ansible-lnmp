@@ -1,12 +1,4 @@
 ---
-- name: yum install mysql env packages
-  yum: name={{ item }} state=present
-  with_items:
-    - gcc
-    - gcc-c++
-    - cmake
-    - ncurses-devel
-
 - name: copy mysql source code
   copy: src=mysql-{{ mysql.version }}.tar.gz dest=/usr/local/src
 

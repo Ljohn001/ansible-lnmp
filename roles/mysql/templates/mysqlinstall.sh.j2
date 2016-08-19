@@ -7,6 +7,7 @@ PASSWORD={{ mysql_init_pass }}
 VERSION={{ mysql.version }}
 DAEMON_USER={{ mysql_daemon_user }}
 DAEMON_NAME={{ mysql_daemon_name }}
+MYSQL_SOCK={{ mysql_socket }}
 
 PIDFILE=${BASEDIR}/mysql.pid
 
@@ -36,13 +37,15 @@ cp ./support-files/mysql.server /etc/init.d/$DAEMON_NAME
 cp support-files/my-large.cnf /etc/my.cnf
 chmod 755 /etc/init.d/mysqld
 
-sed -inr "s#^basedir=#basedir=$BASEDIR#g" /etc/init.d/$DAEMON_NAME
-sed -inr "s#^datadir=#datadir=$DATADIR#g" /etc/init.d/$DAEMON_NAME
-sed -inr "s#^pid_file=#pid_file=$PIDFILE#g" /etc/init.d/$DAEMON_NAME
+sed -i "s#^basedir=#basedir=$BASEDIR#g" /etc/init.d/$DAEMON_NAME
+sed -i "s#^datadir=#datadir=$DATADIR#g" /etc/init.d/$DAEMON_NAME
+sed -i "s#^pid_file=#pid_file=$PIDFILE#g" /etc/init.d/$DAEMON_NAME
 
 sed -i "/\[mysqld\]/abasedir=$BASEDIR" /etc/my.cnf
 sed -i "/\[mysqld\]/adatadir=$DATADIR" /etc/my.cnf
 sed -i "/\[mysqld\]/apid_file=$PIDFILE" /etc/my.cnf
+sed -i "s#^socket.*mysql.sock#socket=$MYSQL_SOCK#g" /etc/my.cnf
+
 
 ## service start and enanble ##
 chkconfig $DAEMON_NAME on

@@ -12,6 +12,7 @@
     - gcc-c++
     - cmake
     - ncurses-devel
+    - epel-release
 
 - name: yum group install base and development tools
   yum: name={{ item }} state=present

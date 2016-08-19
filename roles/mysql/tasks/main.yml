@@ -9,7 +9,7 @@
   group: name={{ mysql_daemon_user }} state=present
 
 - name: daemon user create
-  user: name={{ mysql_daemon_user }} group={{ mysql_daemon_user }}
+  user: name={{ mysql_daemon_user }} group={{ mysql_daemon_user }} system=yes
 
 - shell: sh mysqlinstall.sh
   args:

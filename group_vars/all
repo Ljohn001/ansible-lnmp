@@ -1,5 +1,8 @@
 ---
-## MYSQL CONFIGURATION ##
+################
+## MYSQL CONF ##
+################
+
 # mysql version choice
 mysql5172:
   version: 5.1.72
@@ -29,10 +32,15 @@ mysql5630:
 mysql_base_dir: /usr/local/mysql
 mysql_data_dir: /data/mysql
 mysql_init_pass: adminmysql
+mysql_socket: /tmp/mysql.sock
 mysql_daemon_name: mysqld
 mysql_daemon_user: mysql
 
+
+################
 ## NGINX CONF ##
+################
+
 nginx180:
   version: 1.8.0
   configure_args: >
@@ -43,3 +51,22 @@ nginx_web_dir: /data/web/www
 nginx_log_dir: /data/web/log
 nginx_daemon_name: nginxd
 nginx_daemon_user: nginx
+
+
+##############
+## PHP CONF ##
+##############
+
+php533:
+  version: 5.3.3
+  configure_args: >
+    --prefix=$PHPDIR --with-config-file-path=$CONFDIR --enable-fpm --with-fpm-user=${DAEMON_USER} --with-fpm-group=${DAEMON_USER} --with-mysql=$MYSQLDIR --with-mysql-sock=$MYSQLSOCK --with-libxml-dir  --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --with-iconv-dir --with-zlib-dir --with-mcrypt --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl
+
+php5621:
+  version: 5.6.21
+    --prefix=$PHPDIR --with-config-file-path=$CONFDIR --enable-fpm --with-fpm-user=${DAEMON_USER} --with-fpm-group=${DAEMON_USER} --with-mysql=$MYSQLDIR --with-mysql-sock=$MYSQLSOCK --with-libxml-dir  --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --with-iconv-dir --with-zlib-dir --with-mcrypt --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl
+
+php_base_dir: /usr/local/php
+php_conf_dir: /usr/local/php/etc
+php_daemon_name: php-fpm
+php_daemon_user: php-fpm

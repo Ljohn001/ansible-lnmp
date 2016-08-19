@@ -1,5 +1,6 @@
 ## ansible-lnmp 简介
-目标:实现lnmp的多版本一键安装
+目标:实现nginx,mysql,php的多版本一键安装
+
 特性:
 - 实现单文件中集中配置变量
 - nginx,mysql,php使用不同role组织
@@ -30,7 +31,7 @@ cd ansible-lnmp
 
 修改项目根目录下的main.yml,来确定mysql,nginx,php的版本
 ``` bash
-# 示例:仅安装nginx1.8.0版本，nginx180配置来自于group_vars/all文件
+# 示例:安装mysql5.5.49版本和nginx1.8.0版本，nginx180配置来自于group_vars/all文件
 ---
 - hosts: lnmp
   remote_user: root

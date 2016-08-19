@@ -22,8 +22,40 @@ cd ansible-lnmp
 
 # 配置
 修改hosts文件,编辑host信息
+``` bash
+# 示例:增加host到分组web
+[web]
+192.168.1.106
+```
+
 修改项目根目录下的main.yml,来确定mysql,nginx,php的版本
+``` bash
+# 示例:仅安装nginx1.8.0版本，nginx180配置来自于group_vars/all文件
+---
+- hosts: lnmp
+  remote_user: root
+
+  roles:
+    - {role: env}
+    # - {role: mysql, mysql: "{{ mysql5549 }}"}
+    - {role: nginx, nginx: "{{ nginx180 }}"}
+```
+
 如有必要,修改group_vars/all文件来修改各软件相应的配置项
+``` bash
+# 示例:nginx1.8.0版本的相关配置
+nginx180:
+  version: 1.8.0
+  configure_args: >
+    --user=$DAEMON_USER --group=$DAEMON_USER --prefix=$BASEDIR --with-http_stub_status_module --with-http_ssl_module --with-pcre --with-http_realip_module
+
+nginx_base_dir: /usr/local/nginx
+nginx_web_dir: /data/web/www 
+nginx_log_dir: /data/web/log
+nginx_daemon_name: nginxd
+nginx_daemon_user: nginx
+```
+
 
 # 执行安装
 ansible-playbook -i hosts main.yml

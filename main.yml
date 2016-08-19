@@ -4,6 +4,6 @@
 
   roles:
     - {role: env}
-    # - {role: mysql, mysql: "{{ mysql5549 }}"}
-    # - {role: nginx, nginx: "{{ nginx180 }}"}
-    - {role: php, php: "{{ php533 }}"}
+    - {role: mysql, mysql: "{{ mysql5630 }}"}
+    - {role: nginx, nginx: "{{ nginx180 }}"}
+    - {role: php, php: "{{ php5621 }}"}

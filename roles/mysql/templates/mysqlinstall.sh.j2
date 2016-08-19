@@ -34,7 +34,7 @@ chown -R ${DAEMON_USER}:${DAEMON_USER} $DATADIR
 ./scripts/mysql_install_db --datadir=$DATADIR --user=mysql
 cp ./support-files/mysql.server /etc/init.d/$DAEMON_NAME
 [[ -e /etc/my.cnf ]] && rm -f /etc/my.cnf
-cp support-files/my-large.cnf /etc/my.cnf
+[[ $VERSION == "5.6.30" ]] && cp ./support-files/my-default.cnf /etc/my.cnf || cp ./support-files/my-large.cnf /etc/my.cnf
 chmod 755 /etc/init.d/mysqld
 
 sed -i "s#^basedir=#basedir=$BASEDIR#g" /etc/init.d/$DAEMON_NAME

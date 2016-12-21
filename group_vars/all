@@ -7,15 +7,15 @@
 mysql5172:
   version: 5.1.72
   configure_args: >
-    --prefix=$BASEDIR --datadir=$DATADIR 
-    --with-mysqld-user=mysql --with-charset=utf8 
+    --prefix=$BASEDIR --datadir=$DATADIR
+    --with-mysqld-user=mysql --with-charset=utf8
     --with-extra-charsets=all
 
 mysql5173:
   version: 5.1.73
   configure_args: >
-    --prefix=$BASEDIR --datadir=$DATADIR 
-    --with-mysqld-user=mysql --with-charset=utf8 
+    --prefix=$BASEDIR --datadir=$DATADIR
+    --with-mysqld-user=mysql --with-charset=utf8
     --with-extra-charsets=all
 
 mysql5549:
@@ -47,7 +47,7 @@ nginx180:
     --user=$DAEMON_USER --group=$DAEMON_USER --prefix=$BASEDIR --with-http_stub_status_module --with-http_ssl_module --with-pcre --with-http_realip_module
 
 nginx_base_dir: /usr/local/nginx
-nginx_web_dir: /data/web/www 
+nginx_web_dir: /data/web/www
 nginx_log_dir: /data/web/log
 nginx_daemon_name: nginxd
 nginx_daemon_user: nginx
@@ -60,12 +60,12 @@ nginx_daemon_user: nginx
 php533:
   version: 5.3.3
   configure_args: >
-    --prefix=$PHPDIR --with-config-file-path=$CONFDIR --enable-fpm --with-fpm-user=${DAEMON_USER} --with-fpm-group=${DAEMON_USER} --with-mysql=$MYSQLDIR --with-mysql-sock=$MYSQLSOCK --with-libxml-dir  --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --with-iconv-dir --with-zlib-dir --with-mcrypt --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl
+    --prefix=$PHPDIR --with-config-file-path=$CONFDIR --enable-fpm --with-fpm-user=${DAEMON_USER} --with-fpm-group=${DAEMON_USER} --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd --with-libxml-dir  --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --with-iconv-dir --with-zlib-dir --with-mcrypt --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl
 
 php5621:
   version: 5.6.21
   configure_args: >
-    --prefix=$PHPDIR --with-config-file-path=$CONFDIR --enable-fpm --with-fpm-user=${DAEMON_USER} --with-fpm-group=${DAEMON_USER} --with-mysql=$MYSQLDIR --with-mysql-sock=$MYSQLSOCK --with-libxml-dir  --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --with-iconv-dir --with-zlib-dir --with-mcrypt --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl
+    --prefix=$PHPDIR --with-config-file-path=$CONFDIR --enable-fpm --with-fpm-user=${DAEMON_USER} --with-fpm-group=${DAEMON_USER} --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd --with-libxml-dir  --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --with-iconv-dir --with-zlib-dir --with-mcrypt --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl
 
 php_base_dir: /usr/local/php
 php_conf_dir: /usr/local/php/etc

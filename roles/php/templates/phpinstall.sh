@@ -1,3 +1,4 @@
+set -e
 ## VARIABLE SETTING
 PHPDIR={{ php_base_dir }}
 CONFDIR={{ php_conf_dir }}
@@ -9,8 +10,8 @@ DAEMON_NAME={{ php_daemon_name }}
 
 
 ## LIB PREPARE
-ln -s /usr/lib64/libjpeg.so /usr/lib/libjpeg.so 
-ln -s /usr/lib64/libpng.so /usr/lib/libpng.so
+[ -e "/usr/lib/libjpeg.so" ] || ln -s /usr/lib64/libjpeg.so /usr/lib/libjpeg.so
+[ -e "/usr/lib/libpng.so" ] || ln -s /usr/lib64/libpng.so /usr/lib/libpng.so
 
 ## TARBALL INSTALL PHP
 [[ -d php-$VERSION ]] && rm -rf php-$VERSION

@@ -16,9 +16,15 @@
     - php-mcrypt
     - libmcrypt-devel
     - libevent-devel
+    - openssl-devel
 
 - name: group add
   group: name={{ php_daemon_user }} state=present
 
 - name: user add
   user: name={{ php_daemon_user }} group={{ php_daemon_user }} state=present system=yes
+
+
+- shell: sh phpinstall.sh
+  args:
+    chdir: /usr/local/src

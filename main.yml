@@ -1,9 +1,7 @@
 ---
-- hosts: lnmp
+- hosts: all
   remote_user: root
 
   roles:
     - {role: env}
-    - {role: mysql, mysql: "{{ mysql5630 }}"}
-    - {role: nginx, nginx: "{{ nginx180 }}"}
-    - {role: php, php: "{{ php5621 }}"}
+    - {role: php, php: "{{ php533 }}"}
